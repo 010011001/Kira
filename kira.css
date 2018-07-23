@@ -1,0 +1,43 @@
+.kira img {
+	height: 100px;
+    width: 100px;
+    position: relative;
+}
+.light img {
+
+    position: static;
+    border-radius: 50%;
+	height: 30px;
+    width: 30px;
+    float:left;
+}
+
+.square {
+    height: 420px;
+    width: 380px;
+    border: 1px solid black;
+    text-align: left;
+    font-size: 15px;
+    font-family: serif;
+  }
+  
+.square a{
+    float: left;
+
+}
+
+.light2 {
+    width: 400px;
+    
+ 
+  }
+  .light2 p {
+ 
+  }
+  .light3 img {
+   
+    position: static;
+    border-radius: 50%;
+	height: 30px;
+    width: 30px;
+}

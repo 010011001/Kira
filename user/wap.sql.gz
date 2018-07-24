@@ -1,0 +1,294 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jul 24, 2018 at 09:58 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `wap`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chatlog`
+--
+
+CREATE TABLE `chatlog` (
+  `id` int(11) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `chat` varchar(256) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `post` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chatlog`
+--
+
+INSERT INTO `chatlog` (`id`, `username`, `chat`, `userid`, `post`) VALUES
+(39, 'Light03', 'bat ', 6, '20:19:31'),
+(40, 'Light03', 'ang', 6, '20:19:34'),
+(41, 'Light03', 'ganda', 6, '20:19:38'),
+(42, 'Kira03', 'haha', 7, '20:24:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
+  `comment` varchar(256) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `topic` varchar(256) NOT NULL,
+  `timepost` time NOT NULL,
+  `datepost` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `comment`, `username`, `topic`, `timepost`, `datepost`) VALUES
+(1, 'wew', 'Light03', 'Test Topic 2', '00:00:00', '0000-00-00'),
+(2, 'wix', 'Light03', 'Test Topic 2', '00:00:00', '0000-00-00'),
+(3, 'wewew', 'Light03', 'Test Topic 2', '00:46:29', '2018-07-24'),
+(4, 'wewewewewewew', 'Light03', 'Test Topic 2', '00:48:16', '2018-07-24'),
+(5, 'nice topic, i like it!', 'Kira03', 'Test Topic 2', '00:56:07', '2018-07-24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forum`
+--
+
+CREATE TABLE `forum` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `topic` varchar(256) NOT NULL,
+  `subject` varchar(256) NOT NULL,
+  `timepost` time NOT NULL,
+  `datepost` date NOT NULL,
+  `username` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `forum`
+--
+
+INSERT INTO `forum` (`id`, `userid`, `topic`, `subject`, `timepost`, `datepost`, `username`) VALUES
+(1, 6, 'Test Topic', 'This is a Test Topic', '00:18:22', '2018-07-23', 'Light03'),
+(2, 6, 'Test Topic 2', 'This is a test topic 2', '00:25:17', '2018-07-23', 'Light03'),
+(3, 6, 'Test Topic 3', 'This is a test topic number 3!', '01:02:33', '2018-07-23', 'Light03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `info`
+--
+
+CREATE TABLE `info` (
+  `id` int(11) NOT NULL,
+  `status` varchar(256) NOT NULL,
+  `quotes` varchar(256) NOT NULL,
+  `about` varchar(256) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `username` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `info`
+--
+
+INSERT INTO `info` (`id`, `status`, `quotes`, `about`, `userid`, `username`) VALUES
+(6, 'Taken', 'God is Good', 'Boring', 6, 'Light03'),
+(7, 'Single', 'none', 'none', 7, 'Kira03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profilepic`
+--
+
+CREATE TABLE `profilepic` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `username` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `profilepic`
+--
+
+INSERT INTO `profilepic` (`id`, `userid`, `status`, `username`) VALUES
+(6, 6, 0, 'Light03'),
+(7, 7, 1, 'Kira03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shout`
+--
+
+CREATE TABLE `shout` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `shout` varchar(256) DEFAULT NULL,
+  `post` time DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shout`
+--
+
+INSERT INTO `shout` (`id`, `userid`, `username`, `shout`, `post`) VALUES
+(7, 6, 'Light03', 'TEST', '15:18:54'),
+(8, 7, 'Kira03', 'SHOUT!', '15:20:38'),
+(9, 6, 'Light03', 'gg', '02:52:26'),
+(10, 6, 'Light03', 'GOOD MORNING EVERYONE!', '03:36:35'),
+(11, 6, 'Light03', 'QQQQ', '03:39:31'),
+(12, 6, 'Light03', 'QQQQQQQQ', '03:39:34'),
+(13, 6, 'Light03', 'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ', '03:39:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `first` varchar(256) NOT NULL,
+  `last` varchar(256) NOT NULL,
+  `email` varchar(256) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `birthday` date NOT NULL,
+  `gender` varchar(256) NOT NULL,
+  `joined` date NOT NULL,
+  `verify` int(11) NOT NULL,
+  `token` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `first`, `last`, `email`, `username`, `password`, `birthday`, `gender`, `joined`, `verify`, `token`) VALUES
+(6, 'Reymark', 'Fallorina', 'reymark@yahoo.com', 'Light03', '$2y$10$9MflNV8aq5P1mXpRDUhpVu0tNP.MBkA/gued2fRmtTittWA5OXWj.', '1993-10-19', 'Male', '2018-05-10', 1, ''),
+(7, 'Markgem', 'forever', 'wingknight_03@yahoo.com', 'Kira03', '$2y$10$C2clQPHRsxdr5AL9sVYrUepQXSAYrpMmL/WPLVjNm0BffdhCu9c8S', '2004-10-12', 'Female', '2018-07-10', 1, '');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `chatlog`
+--
+ALTER TABLE `chatlog`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `forum`
+--
+ALTER TABLE `forum`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `info`
+--
+ALTER TABLE `info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `profilepic`
+--
+ALTER TABLE `profilepic`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shout`
+--
+ALTER TABLE `shout`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `chatlog`
+--
+ALTER TABLE `chatlog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `forum`
+--
+ALTER TABLE `forum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `info`
+--
+ALTER TABLE `info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `profilepic`
+--
+ALTER TABLE `profilepic`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `shout`
+--
+ALTER TABLE `shout`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
